@@ -20,13 +20,13 @@ namespace Mc.TD.Upload.Domain.DataMatch
 
         public Address address { get; set; }
         
-        [Required(AllowEmptyStrings = false, ErrorMessage="orderId field is not present")]
+
         public string phone { get; set; }
         
-        [Required(AllowEmptyStrings = false, ErrorMessage="orderId field is not present")]
+
         public string url { get; set; }
         
-        [Required(AllowEmptyStrings = false, ErrorMessage="orderId field is not present")]
+
         public string contact { get; set; }
         
         
