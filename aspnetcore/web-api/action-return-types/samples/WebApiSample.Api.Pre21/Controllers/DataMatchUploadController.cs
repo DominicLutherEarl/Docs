@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mc.TD.Upload.Api.Controllers
 {
@@ -18,9 +19,13 @@ namespace Mc.TD.Upload.Api.Controllers
             _dataMatchUploadResponse = dataMatchUploadResponse;
         }
         [HttpPost]
-        [ResponseType(typeof(DataMatchUploadResponse))]
+        [ResponseType(typeof(DataMatchUploadResponse))]UploadedFile
         public async Task<HttpResponseMessage> PostMatchedDataFiles([FromBody] DataMatchUploadRequestBody UploadedFile)
         {
+
+        var context = new ValidationContext( UploadedFile,null,null);
+        Validator.ValidateProperty(value, new ValidationContext(Entity, null, null) { MemberName = PropertyName ?? ModelName });
+
             System.Net.Http.Headers.HttpRequestHeaders headers = this.Request.Headers;
             string businessId = string.Empty;
             string fileId = string.Empty;
