@@ -24,7 +24,11 @@ namespace Mc.TD.Upload.Api.Controllers
         {
 
         var context = new ValidationContext( UploadedFile,null,null);
-        Validator.ValidateProperty(value, new ValidationContext(Entity, null, null) { MemberName = PropertyName ?? ModelName });
+        if(Validator.ValidateProperty(UploadedFile, context, true))
+        {
+        DataMatchUploadResponse _response = new DataMatchUploadResponse();
+        _response.statuscode = 500;
+        }
 
             System.Net.Http.Headers.HttpRequestHeaders headers = this.Request.Headers;
             string businessId = string.Empty;
