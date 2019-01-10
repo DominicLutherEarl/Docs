@@ -2,11 +2,15 @@ namespace MC.TD.Upload.Domain.DataMatch
 {
 public class RequestDetails
   {
-  public string orderid { get; set; }
 
+        [Required(AllowEmptyStrings = false)]
+        public string orderid { get; set; }
+
+  [Required(AllowEmptyStrings = false)]
         public string ordertype { get; set; }
 
-        public string businessid { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        public string businessid { get; set; }
 
         public string matchtype { get; set; }
 
