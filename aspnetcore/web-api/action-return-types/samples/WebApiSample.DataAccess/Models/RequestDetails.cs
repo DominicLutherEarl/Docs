@@ -5,19 +5,19 @@ namespace Mc.TD.Upload.Domain.DataMatch
 {
     public class Requestdetail
     {
-        [Required(AllowEmptyStrings = false, ErrorMessage="orderId field is not present")]
+        [Required(AllowEmptyStrings = false, ErrorMessage="Id field is not present")]
         public string id { get; set; }
         
-        [Required(AllowEmptyStrings = false, ErrorMessage="orderId field is not present")]
+        [Required(AllowEmptyStrings = false, ErrorMessage="requesttype field is not present")]
         public string requesttype { get; set; }
         
-        [Required(AllowEmptyStrings = false, ErrorMessage="orderId field is not present")]
+        [Required(AllowEmptyStrings = false, ErrorMessage="trackId field is not present")]
         public string trackid { get; set; }
         
-        [Required(AllowEmptyStrings = false, ErrorMessage="orderId field is not present")]
+        [Required(AllowEmptyStrings = false, ErrorMessage="companyname field is not present")]
         public string companyname { get; set; }
         
-        [Required(AllowEmptyStrings = false, ErrorMessage="orderId field is not present")]
+
         public Address address { get; set; }
         
         [Required(AllowEmptyStrings = false, ErrorMessage="orderId field is not present")]
