@@ -1,3 +1,5 @@
+using System.ComponentModel.Annotations;
+
 namespace MC.TD.Upload.Domain.DataMatch
 {
 public class RequestDetails
