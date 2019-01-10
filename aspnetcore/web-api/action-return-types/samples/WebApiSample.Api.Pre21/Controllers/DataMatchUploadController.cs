@@ -24,10 +24,11 @@ namespace Mc.TD.Upload.Api.Controllers
         {
 
         var context = new ValidationContext( UploadedFile,null,null);
-        if(Validator.ValidateProperty(UploadedFile, context, true))
+        if(!Validator.ValidateProperty(UploadedFile, context, true))
         {
         DataMatchUploadResponse _response = new DataMatchUploadResponse();
         _response.statuscode = 500;
+        return GenerateResponse(_response);
         }
 
             System.Net.Http.Headers.HttpRequestHeaders headers = this.Request.Headers;
