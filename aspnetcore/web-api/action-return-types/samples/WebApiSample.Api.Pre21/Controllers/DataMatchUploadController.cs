@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+
 
 namespace Mc.TD.Upload.Api.Controllers
 {
@@ -22,14 +24,14 @@ namespace Mc.TD.Upload.Api.Controllers
             _dataMatchUploadResponse = dataMatchUploadResponse;
         }
         [HttpPost]
-        [ResponseType(typeof(DataMatchUploadResponse))]UploadedFile
+        [ResponseType(typeof(DataMatchUploadResponse))]
         public async Task<HttpResponseMessage> PostMatchedDataFiles([FromBody] DataMatchUploadRequestBody UploadedFile)
         {
-        var result = new List<validationresult>();
+        var result = new List<ValidationResult>();
         var context = new ValidationContext( UploadedFile,null,null);
-        if(!(!Validator.ValidateProperty(UploadedFile, new ValidationContext(UploadedFile, null, null), result) 
-            || !Validator.ValidateProperty(UploadedFile.Requestheader, new ValidationContext(UploadedFile.Requestheader, null, null), result)
-             || !Validator.ValidateProperty(UploadedFile.RequestDetails, new ValidationContext(UploadedFile.RequestDetails, null, null), result)
+        if(!(!Validator.TryValidateProperty(UploadedFile, new ValidationContext(UploadedFile, null, null), result) 
+            || !Validator.TryValidateProperty(UploadedFile.Requestheader, new ValidationContext(UploadedFile.Requestheader, null, null), result)
+             || !Validator.TryValidateProperty(UploadedFile.RequestDetails, new ValidationContext(UploadedFile.RequestDetails, null, null), result)
              ))
         {
         DataMatchUploadResponse _response = new DataMatchUploadResponse();
