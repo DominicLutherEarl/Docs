@@ -34,7 +34,7 @@ namespace Mc.TD.Upload.Api.Controllers
         {
         DataMatchUploadResponse _response = new DataMatchUploadResponse();
         _response.statuscode = 500;
-        _response.reasonphrase = "";
+        _response.reasonphrase = result[0].ErrorMessage;
         return GenerateResponse(_response);
         }
 
