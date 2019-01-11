@@ -13,7 +13,10 @@ namespace Mc.TD.Upload.Api.Controllers
     public class DataMatchUploadController : ApiController
     {
         private readonly IDataMatchUploadService _dataMatchUploadResponse;
-
+        public DataMatchUploadController()
+        {
+           
+        }
         public DataMatchUploadController(IDataMatchUploadService dataMatchUploadResponse)
         {
             _dataMatchUploadResponse = dataMatchUploadResponse;
