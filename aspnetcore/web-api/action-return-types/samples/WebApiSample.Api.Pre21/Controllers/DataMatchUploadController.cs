@@ -22,7 +22,7 @@ namespace Mc.TD.Upload.Api.Controllers
         [ResponseType(typeof(DataMatchUploadResponse))]UploadedFile
         public async Task<HttpResponseMessage> PostMatchedDataFiles([FromBody] DataMatchUploadRequestBody UploadedFile)
         {
-
+        var result = new List<validationresult>();
         var context = new ValidationContext( UploadedFile,null,null);
         if(!Validator.ValidateProperty(UploadedFile, new ValidationContext(UploadedFile, null, null), true) 
             || !Validator.ValidateProperty(UploadedFile.Requestheader, new ValidationContext(UploadedFile.Requestheader, null, null), true)
