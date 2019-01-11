@@ -24,10 +24,10 @@ namespace Mc.TD.Upload.Api.Controllers
         {
         var result = new List<validationresult>();
         var context = new ValidationContext( UploadedFile,null,null);
-        if(!Validator.ValidateProperty(UploadedFile, new ValidationContext(UploadedFile, null, null), true) 
-            || !Validator.ValidateProperty(UploadedFile.Requestheader, new ValidationContext(UploadedFile.Requestheader, null, null), true)
-             || !Validator.ValidateProperty(UploadedFile.RequestDetails, new ValidationContext(UploadedFile.RequestDetails, null, null), true)
-             )
+        if(!(!Validator.ValidateProperty(UploadedFile, new ValidationContext(UploadedFile, null, null), result) 
+            || !Validator.ValidateProperty(UploadedFile.Requestheader, new ValidationContext(UploadedFile.Requestheader, null, null), result)
+             || !Validator.ValidateProperty(UploadedFile.RequestDetails, new ValidationContext(UploadedFile.RequestDetails, null, null), result)
+             ))
         {
         DataMatchUploadResponse _response = new DataMatchUploadResponse();
         _response.statuscode = 500;
